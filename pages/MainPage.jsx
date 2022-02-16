@@ -2,6 +2,8 @@ import React from 'react'
 import { useHistory } from 'react-router-dom'
 import CityList from './../components/CityList'
 import AppFrame from './../components/AppFrame'
+import Paper from '@material-ui/core/Paper'
+
 const cities = [
   { city: "New York", country: "Estados Unidos" },
   { city: "Medellin", country: "Colombia" },
@@ -12,7 +14,7 @@ const cities = [
   { city: "Cucuta", country: "Colombia" },
   { city: "Barranquilla", country: "Colombia" },
 ]
-
+//elevation para ponerle sombra
 const MainPage = () => {
   const history = useHistory()
   const onClickHandler = () => {
@@ -22,10 +24,13 @@ const MainPage = () => {
   }
   return (
     <AppFrame>
-      <CityList cities={cities} onClickCity={onClickHandler} />
+      
+      <Paper elevation={10}>
+        <CityList cities={cities} onClickCity={onClickHandler} />
+      </Paper>
     </AppFrame>
   )
 }
- 
+
 
 export default MainPage

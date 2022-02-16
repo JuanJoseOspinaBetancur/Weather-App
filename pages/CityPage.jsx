@@ -6,6 +6,8 @@ import Weather from '../components/Weather'
 import WeatherDetails from '../components/WeatherDetails'
 import ForecastChart from '../components/ForecastChart'
 import Forecast from '../components/Forecast'
+import AppFrame from '../components/AppFrame'
+import Paper from '@material-ui/core/Paper'
 
 const CityPage = () => {
   const city = "New York"
@@ -54,9 +56,9 @@ const CityPage = () => {
   ]
 
   return (
-    <Grid container justify="space-around" direction='column' spacing={2} >
-
-      <Grid item container xs={12} justify="center" alignItems='flex-end'>
+<AppFrame>
+<Paper>
+<Grid item container xs={12} justify="center" alignItems='flex-end'>
         <CityInfo city={city} country={country} ></CityInfo>
       </Grid>
 
@@ -77,8 +79,12 @@ const CityPage = () => {
         <Forecast forecastItemList={forecastItemList} />
       </Grid>
 
+</Paper>
 
-    </Grid >
+</AppFrame>
+
+      
+
   )
 }
 
