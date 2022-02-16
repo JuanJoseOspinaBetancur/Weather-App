@@ -56,34 +56,35 @@ const CityPage = () => {
   ]
 
   return (
-<AppFrame>
-<Paper>
-<Grid item container xs={12} justify="center" alignItems='flex-end'>
-        <CityInfo city={city} country={country} ></CityInfo>
-      </Grid>
+    <AppFrame>
+      <Paper>
+        
+        <Grid item container xs={12} justify="center" alignItems='flex-end'>
+          <CityInfo city={city} country={country} ></CityInfo>
+        </Grid>
 
 
 
-      <Grid container item xs={12} justify='center' >
+        <Grid container item xs={12} justify='center' >
 
           <Weather temperature={temperature} state={state} />
 
           <WeatherDetails Humidity={Humidity} Wind={Wind} />
 
 
-      </Grid>
-      <Grid item xs={12}>
-        <ForecastChart data={data} />
-      </Grid>
-      <Grid item xs={12} >
-        <Forecast forecastItemList={forecastItemList} />
-      </Grid>
+        </Grid>
+        <Grid item xs={12}>
+          <ForecastChart data={data} />
+        </Grid>
+        <Grid item xs={12} >
+          <Forecast forecastItemList={forecastItemList} />
+        </Grid>
 
-</Paper>
+      </Paper>
 
-</AppFrame>
+    </AppFrame>
 
-      
+
 
   )
 }

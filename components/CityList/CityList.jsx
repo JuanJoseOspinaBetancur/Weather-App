@@ -12,11 +12,11 @@ import ListItem from '@material-ui/core/ListItem'
 // renderCityAndCountry se va a convertir en uan funcion que retorna otra funcion
 const renderCityAndCountry = eventOnClickCity => CityAndCountry => {
 
-  const { city, country} = CityAndCountry;
+  const { city, country } = CityAndCountry;
   //li es un item de lista
   return (
-    <ListItem  button key={city} onClick={eventOnClickCity}>
-      
+    <ListItem button key={city} onClick={eventOnClickCity}>
+
       <Grid container justify="center" alignItems="center" >
 
         <Grid item md={8} xs={12}>
@@ -26,7 +26,7 @@ const renderCityAndCountry = eventOnClickCity => CityAndCountry => {
         <Grid item md={3} xs={12}>
           <Weather temperature={10} state="sunny" />
         </Grid>
-        
+
       </Grid>
 
     </ListItem>
