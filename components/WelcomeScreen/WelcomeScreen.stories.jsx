@@ -7,5 +7,7 @@ export default {
 }
 
 export const WelcomeScreenExample = () => {
-   return <WelcomeScreen/>
+   return <WelcomeScreen> 
+       lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem 
+   </WelcomeScreen>
 }
