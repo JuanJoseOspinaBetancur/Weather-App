@@ -12,11 +12,12 @@ const cities = [
   { city: "Pereira", country: "Colombia" },
   { city: "Supia", country: "Colombia" },
   { city: "Cucuta", country: "Colombia" },
-  { city: "Barranquilla", country: "Colombia" },
+  { city: "Barranquilla", country: "Colombia" }
 ]
 //elevation para ponerle sombra
 const MainPage = () => {
   const history = useHistory()
+  
   const onClickHandler = () => {
     //cual va a ser la nueva url que va a mostrar en el navegador
     //history.push nos permite alterar la url por programacion
@@ -24,7 +25,7 @@ const MainPage = () => {
   }
   return (
     <AppFrame>
-      
+
       <Paper elevation={10}>
         <CityList cities={cities} onClickCity={onClickHandler} />
       </Paper>
