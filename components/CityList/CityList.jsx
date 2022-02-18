@@ -59,19 +59,22 @@ const CityList = ({ cities, onClickCity }) => {
   const [allWeather, setAllWeather] = useState({});
 
   useEffect(() => {
-    const setWeather = (city, country) => {
+    const setWeather = (city, country, countryCode) => {
       const appid = '3f0f42d46b6d17a6ca5d5b2cb5c11078';
-      const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${appid}`;
+      const url = `https://api.openweathermap.org/data/2.5/weather?q=${city},${countryCode}&appid=${appid}`;
 
       axios.get(url).then(
         //-273.15 k a c
         response => {
           const { data } = response
-          const temperature = Math.round((data.main.temp)-273.15)
+          const temperature = Math.round((data.main.temp) - 273.15)
           const state = "sunny"
+
           const propName = `${city}-${country}` //Ej: [New York - Estados Unidos]
           const propValue = { temperature, state } //Ej:  { temperature: 10, state: 'cloud' }
 
+          console.log("propName", propName)
+          console.log("propValue", propValue)
           /* Explicacion de porque se puso los ...
           allWeather en la 1er pasada:
           {
@@ -91,14 +94,13 @@ const CityList = ({ cities, onClickCity }) => {
           setAllWeather(allWeather => {
 
             const result = { ...allWeather, [propName]: propValue }
-            console.log("result", result)
-              //La primera vez no tengo nada
-              return result
+            //La primera vez no tengo nada
+            return result
+          })
         })
-      })
     }
-    cities.forEach(({ city, country }) => {
-      setWeather(city, country)
+    cities.forEach(({ city, country, countryCode }) => {
+      setWeather(city, country, countryCode)
     });
 
   }, [cities]);
@@ -121,7 +123,9 @@ CityList.propTypes = {
   cities: PropTypes.arrayof(
     PropTypes.shape({
       city: PropTypes.string.isRequired,
-      country: PropTypes.string.isRequired
+      country: PropTypes.string.isRequired,
+      countryCode:PropTypes.string.isRequired
+
     })
   ).isRequired,
   onClickCity: PropTypes.func.isRequired
