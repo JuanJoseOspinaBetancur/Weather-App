@@ -59,7 +59,7 @@ const CityList = ({ cities, onClickCity }) => {
   const [allWeather, setAllWeather] = useState({});
 
   useEffect(() => {
-    const setWeather = (city,country) => {
+    const setWeather = (city, country) => {
       const appid = '3f0f42d46b6d17a6ca5d5b2cb5c11078';
       const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${appid}`;
 
@@ -67,19 +67,44 @@ const CityList = ({ cities, onClickCity }) => {
         //-273.15 k a c
         response => {
           const { data } = response
-          const temperature = data.main.temp
+          const temperature = Math.round((data.main.temp)-273.15)
           const state = "sunny"
-          const propName= `${city}-${country}` //Ej: [New York - Estados Unidos]
-          const propValue= {temperature, state} //Ej:  { temperature: 10, state: 'cloud' }
-          setAllWeather({ ...allWeather,[propName]:propValue })
-        })
+          const propName = `${city}-${country}` //Ej: [New York - Estados Unidos]
+          const propValue = { temperature, state } //Ej:  { temperature: 10, state: 'cloud' }
 
+          /* Explicacion de porque se puso los ...
+          allWeather en la 1er pasada:
+          {
+            [New York - Estados Unidos] : { temperature:10, state:"sunny" },
+          }
+          allWeather en la 2da pasada:
+          se desmonta lo pasado, abriendo campo para la otra pasada y queda asi:
+          
+          {
+          [New York - Estados Unidos] : { temperature:10, state:"sunny" },
+          [Medellin - Colombia] : { temperature:10, state:"sunny" }
+          }
+
+          Pero si viene con el mismo nombre, se reescribe 
+          */
+          //set[VARIABLE_ESTADO](VARIABLE_ESTADO=>VARIABLE_ESTADO+1 )
+          setAllWeather(allWeather => {
+
+            const result = { ...allWeather, [propName]: propValue }
+            console.log("result", result)
+              //La primera vez no tengo nada
+              return result
+        })
+      })
     }
     cities.forEach(({ city, country }) => {
-      setWeather(city,country)
+      setWeather(city, country)
     });
 
   }, [cities]);
+
+
+
 
   return (
     <List>
