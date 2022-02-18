@@ -68,13 +68,14 @@ const CityList = ({ cities, onClickCity }) => {
         response => {
           const { data } = response
           const temperature = Math.round((data.main.temp) - 273.15)
-          const state = "sunny"
+          const state = data.weather[0].main.toLowerCase()
 
           const propName = `${city}-${country}` //Ej: [New York - Estados Unidos]
           const propValue = { temperature, state } //Ej:  { temperature: 10, state: 'cloud' }
 
-          console.log("propName", propName)
-          console.log("propValue", propValue)
+
+          console.log(propName,propValue)
+
           /* Explicacion de porque se puso los ...
           allWeather en la 1er pasada:
           {
@@ -92,7 +93,6 @@ const CityList = ({ cities, onClickCity }) => {
           */
           //set[VARIABLE_ESTADO](VARIABLE_ESTADO=>VARIABLE_ESTADO+1 )
           setAllWeather(allWeather => {
-
             const result = { ...allWeather, [propName]: propValue }
             //La primera vez no tengo nada
             return result

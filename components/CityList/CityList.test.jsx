@@ -4,19 +4,20 @@ import { render, fireEvent } from '@testing-library/react'
 import '@testing-library/jest-dom/extend-expect'
 
 const cities = [
-    { city: "New York", country: "Estados Unidos" },
-    { city: "Medellin", country: "Colombia" },
-    { city: "Bogota", country: "Colombia" },
-    { city: "Manizales", country: "Colombia" },
-    { city: "Pereira", country: "Colombia" },
-    { city: "Supia", country: "Colombia" },
-    { city: "Cucuta", country: "Colombia" },
-    { city: "Barranquilla", country: "Colombia" },
-]
+    { city: "New York", country: "Estados Unidos", countryCode:"US" },
+    { city: "Los Angeles", country: "Estados Unidos", countryCode:"US" },
+    { city: "Houston", country: "Estados Unidos", countryCode:"US" },
+    { city: "Phoenix", country: "Estados Unidos", countryCode:"US" },
+    { city: "San Antonio", country: "Estados Unidos", countryCode:"US" },
+    { city: "Filadelfia", country: "Estados Unidos", countryCode:"US" },
+    { city: "Illinois", country: "Estados Unidos", countryCode:"US" },
+    { city: "Miami", country: "Estados Unidos", countryCode:"US" },
+    { city: "Detroit", country: "Estados Unidos", countryCode:"US" }
+  ]
 
 test("CityList Render", async () => {
 
-    const { findAllByRole } = render(< CityList cities={cities} />)
+    const { findAllByRole } = render(< CityList cities={cities} onClickCity={()=>{}} />)
 
     const items = await findAllByRole("button")
 

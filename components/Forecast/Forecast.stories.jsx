@@ -7,9 +7,12 @@ export default {
 }
 
 const forecastItemList = [
-    { weekDay:"Jueves", hour:19, state:'cloud', temperature:19 },
-    { weekDay:"Viernes", hour:7, state:'fog', temperature:1 },
-    { weekDay:"Sabado", hour:13, state:'alien', temperature:-1 }
+    { weekDay:"Jueves", hour:19, state:'drizzle', temperature:19 },
+    { weekDay:"Viernes", hour:7, state:'thunderstorm', temperature:1 },
+    { weekDay:"Sabado", hour:13, state:'clouds', temperature:-1 },
+    { weekDay:"Jueves", hour:19, state:'clear', temperature:19 },
+    { weekDay:"Viernes", hour:7, state:'rain', temperature:1 },
+    { weekDay:"Sabado", hour:13, state:'snow', temperature:-1 },
 
 ]
 

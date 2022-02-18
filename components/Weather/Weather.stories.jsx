@@ -6,5 +6,5 @@ export default {
     component: Weather
 }
 
-export const WeatherCloud = () => <Weather temperature={10} state="cloud" />
-export const WeatherExample = () => <Weather temperature={10} state="alien" />
+export const WeatherCloud = () => <Weather temperature={10} state="snow" />
+export const WeatherExample = () => <Weather temperature={10} state="rain" />
