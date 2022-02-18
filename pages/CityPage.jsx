@@ -10,6 +10,7 @@ import AppFrame from '../components/AppFrame'
 import Paper from '@material-ui/core/Paper'
 
 const CityPage = () => {
+
   const city = "New York"
   const country = "Estados Unidos"
   const temperature = 20
@@ -48,6 +49,8 @@ const CityPage = () => {
       "max": 19,
     }
   ]
+
+  
   const forecastItemList = [
     { weekDay: "Jueves", hour: 19, state: 'cloud', temperature: 19 },
     { weekDay: "Viernes", hour: 7, state: 'fog', temperature: 1 },

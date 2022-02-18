@@ -13,7 +13,7 @@ const AppFrame = ({ children }) => {
     return (
         <Grid container justify='center' >
 
-            <AppBar  position='static'>
+            <AppBar position='static'>
 
                 <Toolbar variant='dense'>
 
@@ -38,7 +38,7 @@ const AppFrame = ({ children }) => {
             </AppBar>
 
             <Grid item xs={12} sm={11} md={10} lg={8}>
-{children}
+                {children}
 
             </Grid>
 

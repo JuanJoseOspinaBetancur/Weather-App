@@ -13,7 +13,6 @@ const ForecastChart = ({ data }) => {
         <Legend></Legend>
         <Line type="monotone" dataKey="max" stroke="#FF0000"></Line>
         <Line type="monotone" dataKey="min" stroke="#0000FF"></Line>
-
       </LineChart>
  </ResponsiveContainer>
   )

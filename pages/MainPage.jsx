@@ -15,7 +15,6 @@ const cities = [
   { city: "Miami", country: "Estados Unidos", countryCode:"US" },
   { city: "Detroit", country: "Estados Unidos", countryCode:"US" }
 ]
-//elevation para ponerle sombra
 const MainPage = () => {
   const history = useHistory()
   

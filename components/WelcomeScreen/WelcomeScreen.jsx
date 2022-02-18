@@ -7,7 +7,7 @@ import '../../index.css'
 const WelcomeScreen = ({ children }) => {
 
     const myRefDiv = useRef(null)
-    const [vanta, setVanta] = useState(0)//vanta va a ser inicializado en 0
+    const [vanta] = useState(0)//vanta va a ser inicializado en 0
 
     console.log("myRefDiv", myRefDiv.current)
 
@@ -25,7 +25,6 @@ const WelcomeScreen = ({ children }) => {
                 THREE,
                 el: myRefDiv.current
             })
-            console.log("Establezco vanta a un valor diferente de 0")
         }
         //Al salir de la pantalla debemos detener el efecto
         //y des-asociar tosos los recursos (div+vanta effect)
