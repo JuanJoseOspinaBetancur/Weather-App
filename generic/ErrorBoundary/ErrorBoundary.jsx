@@ -6,57 +6,27 @@ class ErrorBoundary extends Component {
         super(props)
 
         this.state = {
-            activo: false,
-            intento: 'estamos intentando'
+            hasError: false
         }
-
     }
 
-
-    estaActivo = () => {
-        return this.state.activo ? ' activo' : ' No activo'
+    // this.setState(getDerivedStateFromError(error))
+    static getDerivedStateFromError(error) {
+        return { hasError: true }
     }
 
-    //el state es inmutable, no lo puedo cambiar, tiene que ser por una funcion setState
-    // incorrecto this.state.activo = true
-    onClickHandler = () => {
-        this.setState({ activo: !this.state.activo })
-        this.setState({ intento: 'intentamos bien :D' })
-        console.log(this.state.activo)
+    componentDidCatch(error, errorInfo) {
+        console.log("ErrorInfo", errorInfo)
     }
-
-    componentDidMount() {
-
-        console.log("El componente se ha montado")
-
-    }
-
-    componentDidUpdate(prevProps, prevState) {
-        console.log("estado previo", prevState.activo)
-        console.log("estado nuevo", this.state.activo)
-        console.log("El componente se ha Actualizado")
-
-    }
-
-componentWillMount(){
-    
-}
 
     render() {
         return (
-
-            <div>
-                <button onClick={this.onClickHandler}>Activar</button>
-
-                <h1>
-                    hola {this.props.saludo} <br /> {this.state.intento}<br />
-                    {
-                        this.estaActivo()
-                    }
-                </h1>
-            </div>
-
+            this.state.hasError ?
+            (<h1>Hubo un error</h1>)
+            :
+            (this.props.children)
         )
     }
 }
+
 export default ErrorBoundary

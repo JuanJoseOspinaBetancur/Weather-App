@@ -1,37 +1,36 @@
 import React from 'react'
 import { useHistory } from 'react-router-dom'
-import CityList from './../components/CityList'
-import AppFrame from './../components/AppFrame'
 import Paper from '@material-ui/core/Paper'
+import AppFrame from './../components/AppFrame'
+import CityList from './../components/CityList'
 
 const cities = [
-  { city: "New York", country: "Estados Unidos", countryCode:"US" },
-  { city: "Los Angeles", country: "Estados Unidos", countryCode:"US" },
-  { city: "Houston", country: "Estados Unidos", countryCode:"US" },
-  { city: "Phoenix", country: "Estados Unidos", countryCode:"US" },
-  { city: "San Antonio", country: "Estados Unidos", countryCode:"US" },
-  { city: "Filadelfia", country: "Estados Unidos", countryCode:"US" },
-  { city: "Illinois", country: "Estados Unidos", countryCode:"US" },
-  { city: "Miami", country: "Estados Unidos", countryCode:"US" },
-  { city: "Detroit", country: "Estados Unidos", countryCode:"US" }
+    { city: "Buenos Aires", country: "Argentina", countryCode: "AR"},
+    { city: "Bogotá", country: "Colombia", countryCode: "CO"},
+    { city: "Madrid", country: "España", countryCode: "ES"},
+    { city: "Ciudad de México", country: "México", countryCode: "MX"},
 ]
+
 const MainPage = () => {
-  const history = useHistory()
-  
-  const onClickHandler = () => {
-    //cual va a ser la nueva url que va a mostrar en el navegador
-    //history.push nos permite alterar la url por programacion
-    history.push('/city')
-  }
-  return (
-    <AppFrame>
+    const history = useHistory()
 
-      <Paper elevation={10}>
-        <CityList cities={cities} onClickCity={onClickHandler} />
-      </Paper>
-    </AppFrame>
-  )
+    const onClickHandler = (city, countryCode) => {
+        // history.push permite alterar la URL por programación
+        // /city/AR/Buenos%20Aires
+        console.log("city", city)
+        console.log("countryCode", countryCode)
+        // history.push("/city")
+    }
+
+    return (
+        <AppFrame>
+            <Paper elevation={3}>
+                <CityList 
+                    cities={cities} 
+                    onClickCity={onClickHandler} />
+            </Paper>
+        </AppFrame>
+    )
 }
-
 
 export default MainPage

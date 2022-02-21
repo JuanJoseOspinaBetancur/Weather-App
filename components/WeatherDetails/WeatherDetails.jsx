@@ -2,19 +2,18 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Typography from '@material-ui/core/Typography'
 
-const WeatherDetails = ({ Humidity, Wind }) => {
+const WeatherDetails = ({ humidity, wind }) => {
     return (
-
-        <React.Fragment>
-            <Typography>Humedad: {Humidity}%</Typography>
-            <Typography>Viento: {Wind}Km/h</Typography>
-        </React.Fragment>
+        <>
+            <Typography>Humedad: {humidity}%</Typography>
+            <Typography>Viento: {wind} km/h</Typography>
+        </>
     )
 }
 
 WeatherDetails.propTypes = {
-    Humidity: PropTypes.number.isRequired,
-    Wind: PropTypes.number.isRequired
+    humidity: PropTypes.number.isRequired,
+    wind: PropTypes.number.isRequired,
 }
 
 export default WeatherDetails
