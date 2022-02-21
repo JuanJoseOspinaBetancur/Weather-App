@@ -126,7 +126,6 @@ CityList.propTypes = {
       city: PropTypes.string.isRequired,
       country: PropTypes.string.isRequired,
       countryCode:PropTypes.string.isRequired
-
     })
   ).isRequired,
   onClickCity: PropTypes.func.isRequired
