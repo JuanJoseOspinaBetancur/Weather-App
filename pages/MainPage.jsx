@@ -5,10 +5,10 @@ import AppFrame from './../components/AppFrame'
 import CityList from './../components/CityList'
 
 const cities = [
-    { city: "Buenos Aires", country: "Argentina", countryCode: "AR"},
-    { city: "Bogotá", country: "Colombia", countryCode: "CO"},
-    { city: "Madrid", country: "España", countryCode: "ES"},
-    { city: "Ciudad de México", country: "México", countryCode: "MX"},
+    { city: "Buenos Aires", country: "Argentina", countryCode: "AR" },
+    { city: "Bogotá", country: "Colombia", countryCode: "CO" },
+    { city: "Madrid", country: "España", countryCode: "ES" },
+    { city: "Ciudad de México", country: "México", countryCode: "MX" },
 ]
 
 const MainPage = () => {
@@ -17,16 +17,16 @@ const MainPage = () => {
     const onClickHandler = (city, countryCode) => {
         // history.push permite alterar la URL por programación
         // /city/AR/Buenos%20Aires
-        console.log("city", city)
-        console.log("countryCode", countryCode)
-        // history.push("/city")
+        console.log("city mp", city)
+        console.log("countryCode mp", countryCode)
+        history.push(`/city/${countryCode}/${city}`)
     }
 
     return (
         <AppFrame>
             <Paper elevation={3}>
-                <CityList 
-                    cities={cities} 
+                <CityList
+                    cities={cities}
                     onClickCity={onClickHandler} />
             </Paper>
         </AppFrame>
